@@ -1,10 +1,15 @@
+import { theme } from "./theme"
 import Header from "./layout/Header"
+import Content from "./layout/Content"
+import { ConfigProvider } from "antd"
 
 function App() {
+
   return (
-    <div className="container mx-auto">
-      <Header />
-    </div>
+    <ConfigProvider theme={theme}>
+      <Header className="px-5 mb-10" />
+      <Content />
+    </ConfigProvider>
   )
 }
 
