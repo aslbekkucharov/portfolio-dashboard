@@ -1,5 +1,5 @@
 import React from 'react'
-import { routes } from './routes'
+import { routes } from '@/routes'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, RouterProvider, createBrowserRouter } from 'react-router-dom'
 

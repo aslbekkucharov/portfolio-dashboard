@@ -1,5 +1,5 @@
-import { Post } from "../types"
-import PostCard from "../components/cards/Post"
+import { Post } from "@/types"
+import PostCard from "@/components/cards/Post"
 import { useLoaderData } from "react-router-dom"
 
 export default function Posts() {

@@ -1,13 +1,21 @@
 {
     "compilerOptions": {
         "target": "ESNext",
+        "paths": {
+            "@/*": [
+                "./src/*"
+            ]
+        },
         "useDefineForClassFields": true,
         "lib": [
             "DOM",
             "DOM.Iterable",
             "ESNext"
         ],
-        "types": ["node", "vite/client"],
+        "types": [
+            "node",
+            "vite/client"
+        ],
         "allowJs": false,
         "skipLibCheck": true,
         "esModuleInterop": false,
@@ -24,7 +32,6 @@
     "include": [
         "src"
     ],
-    
     "references": [
         {
             "path": "./tsconfig.node.json"

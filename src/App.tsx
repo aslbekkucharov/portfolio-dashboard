@@ -1,6 +1,6 @@
-import { theme } from "./theme"
-import Header from "./layout/Header"
-import Content from "./layout/Content"
+import { theme } from "@/theme"
+import Header from "@/layout/Header"
+import Content from "@/layout/Content"
 import { ConfigProvider } from "antd"
 
 function App() {

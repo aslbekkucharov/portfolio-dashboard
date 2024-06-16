@@ -12,7 +12,7 @@ export default function Header(props: { className: string }) {
     }
 
     return (
-        <header className={ clsx("py-3 bg-slate-50", props.className) }>
+        <header className={ clsx("py-3 bg-white", props.className) }>
             <div className="wrapper mx-auto flex items-center justify-between">
                 <Link to="/" className="flex items-center gap-3">
                     <span className="w-8 h-8 rounded-full inline-flex items-center justify-center bg-black">

@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react"
-import { Button, Input, Switch, message, notification } from "antd"
+import { Button, Input, Switch, notification } from "antd"
 import { Form, useLoaderData, useNavigate, useParams } from "react-router-dom"
-import { Post } from "../../types"
-import { api } from "../../plugins/api"
-import BaseEditor from "../../components/editor/Editor"
+import { Post } from "@/types"
+import { api } from "@/plugins/api"
+import BaseEditor from "@/components/editor/Editor"
 
 interface Form {
     title: string
