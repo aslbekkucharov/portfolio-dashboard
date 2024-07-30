@@ -7,16 +7,20 @@ import { api } from "@/plugins/api"
 import PostForm from "@/views/PostForm"
 import Experience from "@/views/Experience"
 import Description from "@/views/Description"
+import Auth from "@/views/Auth"
+import PrivateRoutes from "@/components/PrivateRoutes"
 
 export const routes: RouteObject[] = [
     {
         path: '/',
-        Component: App,
+        element: <PrivateRoutes>
+                    <App />
+                </PrivateRoutes>,
 
         children: [
             {
                 index: true,
-                Component: Posts,
+                element: <Posts />,
                 loader: async () => {
                     const response = await api.get('/posts')
                     return response.data
@@ -24,11 +28,11 @@ export const routes: RouteObject[] = [
             },
             {
                 path: '/create-post',
-                Component: PostForm
+                element: <PostForm />
             },
             {
                 path: '/edit-post/:id',
-                Component: PostForm,
+                element: <PostForm />,
                 loader: async ({ params }) => {
                     const response = await api.get(`/posts/${params.id}`)
                     return response.data
@@ -36,16 +40,20 @@ export const routes: RouteObject[] = [
             },
             {
                 path: '/experience',
-                Component: Experience
+                element: <Experience />
             },
             {
                 path: '/description',
-                Component: Description
+                element: <Description />
             },
             {
                 path: '/files',
-                Component: Files
+                element: <Files />
             },
         ]
-    }
+    },
+    {
+        path: '/login',
+        element: <Auth />
+    },
 ]

@@ -1,10 +1,11 @@
 import React from 'react'
 import { routes } from '@/routes'
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter, RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 // Styles
 import './assets/style/style.scss'
+import { AuthProvider } from './context/auth'
 
 // Components
 
@@ -13,6 +14,8 @@ const rootElement: HTMLElement = document.getElementById('root')!
 
 ReactDOM.createRoot(rootElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider tokenKey='token'>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 )

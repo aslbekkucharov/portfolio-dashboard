@@ -1,7 +1,7 @@
 import Column from "antd/es/table/Column";
 import { Button, Dropdown, MenuProps, Table, TableColumnsType, Tag } from "antd"
 
-import { Post } from "@/types";
+import { PostResponse } from "@/types";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { EllipsisOutlined, PlusCircleOutlined } from "@ant-design/icons";
 
@@ -9,7 +9,7 @@ export default function Posts() {
 
     const navigate = useNavigate()
 
-    const data = useLoaderData() as Post[]
+    const data = useLoaderData() as PostResponse[]
 
     const actions: MenuProps['items'] = [
         {
@@ -23,7 +23,7 @@ export default function Posts() {
         }
     ]
 
-    const columns: TableColumnsType<Post> = [
+    const columns: TableColumnsType<PostResponse> = [
         {
             key: 'title',
             title: 'Заголовок',
