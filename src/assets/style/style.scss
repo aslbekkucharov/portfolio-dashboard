@@ -12,6 +12,16 @@
 	--ck-inner-shadow: theme('boxShadow.input');
 }
 
+html,
+body {
+	height: 100%;
+	min-height: 100vh;
+}
+
+#root {
+	height: 100%;
+}
+
 body {
 	font-family: Roboto, sans-serif;
 	background-color: theme('colors.slate.100');

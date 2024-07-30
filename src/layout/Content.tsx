@@ -1,11 +1,13 @@
-import { routes } from "../routes"
-import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 
-export default function Content() {
+type Props = {}
 
+function Content(props: Props) {
     return (
-        <main className="wrapper mx-auto ">
-            <Outlet />
-        </main>
+        <div className="container px-5 py-7">
+            <Outlet></Outlet>
+        </div>
     )
 }
+
+export default Content
