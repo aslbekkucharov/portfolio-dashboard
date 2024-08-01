@@ -5,6 +5,7 @@ import { Button, Input, Typography } from "antd"
 import { Post } from "@/types"
 import { api } from "@/plugins/api"
 import Editor from "@/components/editor/Editor"
+import { LoadingOutlined, PlusOutlined } from "@ant-design/icons"
 
 type Props = {
     isEditing: boolean
@@ -67,7 +68,7 @@ export default function PostForm(props: Props) {
             <Input size="large" value={post.title} onChange={(e) => handlePostTitleChange(e.target.value)} placeholder="Введите заголовок" />
             <Editor value={post.content} onChange={handlePostContentChange} />
             <div className="ml-auto max-w-xs w-full">
-                <Button onClick={handlePostAction} loading={isFetching} type="primary" size="large" block>
+                <Button onClick={handlePostAction} loading={isFetching} icon={isFetching ? <LoadingOutlined /> : <PlusOutlined />} type="primary" size="large" block>
                     {isFetching ? null : <span>{formConfig.formButtonLabel}</span>}
                 </Button>
             </div>
