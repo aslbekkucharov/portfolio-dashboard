@@ -13,9 +13,7 @@ const router = createBrowserRouter(routes)
 const rootElement: HTMLElement = document.getElementById('root')!
 
 ReactDOM.createRoot(rootElement).render(
-  <React.StrictMode>
-    <AuthProvider tokenKey='token'>
-      <RouterProvider router={router} />
-    </AuthProvider>
-  </React.StrictMode>
+  <AuthProvider tokenKey='token'>
+    <RouterProvider router={router} />
+  </AuthProvider>
 )

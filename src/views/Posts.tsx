@@ -1,24 +1,26 @@
-import Column from "antd/es/table/Column";
-import { Button, Dropdown, MenuProps, Table, TableColumnsType, Tag } from "antd"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import { EllipsisOutlined, PlusCircleOutlined } from "@ant-design/icons"
+import { App, Button, Dropdown, MenuProps, Table, TableColumnsType, Tag } from "antd"
 
-import { PostResponse } from "@/types";
-import { useLoaderData, useNavigate } from "react-router-dom";
-import { EllipsisOutlined, PlusCircleOutlined } from "@ant-design/icons";
+import { truncate } from "@/utils"
+import { api } from "@/plugins/api"
+import { PostResponse } from "@/types"
 
 export default function Posts() {
 
     const navigate = useNavigate()
-
-    const data = useLoaderData() as PostResponse[]
+    const { message } = App.useApp()
+    const [data, setData] = useState<PostResponse[]>([])
 
     const actions: MenuProps['items'] = [
         {
-            key: 'edit',
+            key: 'EDIT',
             label: 'Редактировать'
         },
         {
             danger: true,
-            key: 'delete',
+            key: 'DELETE',
             label: 'Удалить'
         }
     ]
@@ -33,7 +35,7 @@ export default function Posts() {
             key: 'content',
             title: 'Описание',
             dataIndex: 'content',
-            render: (content: string) => content.slice(0, 100) + '…'
+            render: (content: string) => <div dangerouslySetInnerHTML={{ __html: truncate(content, 100) }}></div>
         },
         {
             key: 'isActive',
@@ -45,20 +47,53 @@ export default function Posts() {
             key: 'actions',
             title: 'Действия',
             dataIndex: 'actions',
-            render: () => (
-                <Dropdown trigger={['click']} menu={{ items: actions }}>
+            render: (_, record) => (
+                <Dropdown trigger={['click']} menu={{ items: actions, onClick: (menu) => handleMenuItemClick(record, menu) }}>
                     <Button type="text" size="large" icon={<EllipsisOutlined className="text-2xl" />} />
                 </Dropdown>
             )
         }
     ]
 
+    function getPosts() {
+        api.get('/posts').then((res) => {
+            setData(() => res.data)
+        })
+    }
+
+    function handlePostEdit(record: PostResponse) {
+        navigate(`/edit-post/${record.id}`)
+    }
+
+    async function handlePostDelete(record: PostResponse) {
+        api.delete(`/posts/${record.id}`).then(() => {
+            message.success('Пост успешно удален!')
+            getPosts()
+        }).catch(() => {
+            message.error('Что-то пошло не так!')
+        })
+    }
+
+    function handleMenuItemClick(record: PostResponse, menu: any) {
+        switch (menu.key) {
+            case 'EDIT':
+                handlePostEdit(record)
+                break
+            case 'DELETE':
+                handlePostDelete(record)
+                break
+        }
+    }
+
+    useEffect(() => {
+        getPosts()
+    }, [])
+
     return (
         <>
             <div className="flex justify-end mb-6">
                 <Button onClick={() => navigate('/create-post')} type="default" size="large" icon={<PlusCircleOutlined />}>Добавить пост</Button>
             </div>
-            
             <Table dataSource={data} columns={columns} rowKey='id' pagination={{ hideOnSinglePage: true }} />
         </>
     )
