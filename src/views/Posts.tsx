@@ -32,10 +32,10 @@ export default function Posts() {
             dataIndex: 'title',
         },
         {
-            key: 'content',
+            key: 'excerpt',
             title: 'Описание',
-            dataIndex: 'content',
-            render: (content: string) => <div dangerouslySetInnerHTML={{ __html: truncate(content, 100) }}></div>
+            dataIndex: 'excerpt',
+            render: (content: string) => <div>{truncate(content, 100)}</div>
         },
         {
             key: 'isActive',

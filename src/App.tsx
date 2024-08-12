@@ -9,8 +9,8 @@ function App() {
   return (
     <ConfigProvider theme={theme} locale={ruRu}>
       <AntWrapper message={{ maxCount: 1, duration: 1.5 }} className='h-full'>
-        <div className="flex h-full">
-          <Sidebar className="max-w-[300px] h-full w-full border-r border-slate-200" />
+        <div className="grid grid-cols-[minmax(250px,20%)_1fr] gap-3 h-full">
+          <Sidebar className="h-full w-full border-r border-slate-200" />
           <Content />
         </div>
       </AntWrapper>

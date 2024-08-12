@@ -23,7 +23,7 @@ function SidebarLinks() {
 function Sidebar({ className }: Props) {
     return (
         <div className={clsx('bg-white', className)}>
-            <div className="wrapper mx-auto">
+            <div className="wrapper mx-auto h-full">
                 <div className='p-5 flex items-center justify-between'>
                     <Link to={'/'} className='inline-flex items-center gap-4'>
                         <DashboardOutlined className='text-3xl' />

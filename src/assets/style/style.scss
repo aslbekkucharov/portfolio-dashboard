@@ -8,18 +8,15 @@
 	box-sizing: border-box;
 
 	--ck-border-radius: 8px;
-	--ck-focus-ring: 1px solid black;
+	--ck-focus-ring: 1px solid red;
 	--ck-inner-shadow: theme('boxShadow.input');
 }
 
 html,
-body {
-	height: 100%;
-	min-height: 100vh;
-}
-
+body,
 #root {
 	height: 100%;
+	min-height: 100vh;
 }
 
 body {

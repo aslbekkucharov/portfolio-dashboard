@@ -1,7 +1,11 @@
 import PostForm from "@/components/PostForm"
 
 function CreatePost() {
-    return <PostForm isEditing={false} />
+    return (
+        <div className="pb-10">
+            <PostForm isEditing={false} />
+        </div>
+    )
 }
 
 export default CreatePost

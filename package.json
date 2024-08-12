@@ -11,8 +11,6 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.3.7",
-    "@ckeditor/ckeditor5-build-classic": "^41.4.2",
-    "@ckeditor/ckeditor5-react": "^7.0.0",
     "antd": "^5.18.1",
     "axios": "^1.7.2",
     "react": "^18.2.0",
@@ -21,12 +19,14 @@
     "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
+    "@ckeditor/ckeditor5-react": "^9.0.0",
     "@iconify/react": "^5.0.1",
     "@types/node": "^20.14.2",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.19",
+    "ckeditor5": "^43.0.0",
     "clsx": "^2.1.1",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.1",

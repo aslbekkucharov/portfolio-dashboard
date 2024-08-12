@@ -7,7 +7,12 @@ import { api } from "@/plugins/api"
 
 function EditPost() {
     const { id } = useParams()
-    const [initialValues, setInitialValues] = useState<Post & { id?: number }>({ title: '', content: '', isActive: true })
+    const [initialValues, setInitialValues] = useState<Post & { id?: number }>({
+        title: '',
+        content: '',
+        excerpt: '',
+        isActive: true
+    })
 
     useEffect(() => {
         api.get(`/posts/${id}`).then((res) => setInitialValues((preValues) => ({ ...preValues, ...res.data })))

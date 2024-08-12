@@ -1,6 +1,6 @@
-import { useEffect, useMemo, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Button, Input, Typography } from "antd"
+import { useEffect, useMemo, useState } from "react"
 
 import { Post } from "@/types"
 import { api } from "@/plugins/api"
@@ -21,9 +21,15 @@ type FormConfig = {
 
 export default function PostForm(props: Props) {
 
+    const { TextArea } = Input
     const navigator = useNavigate()
     const [isFetching, setIsFetching] = useState<boolean>(false)
-    const [post, setPost] = useState<Post>({ title: '', content: '', isActive: true })
+    const [post, setPost] = useState<Post>({
+        title: '',
+        content: '',
+        excerpt: '',
+        isActive: true
+    })
 
     useEffect(() => {
         props.isEditing ? setPost((prevVal) => ({ ...prevVal, ...props.initialValues })) : null
@@ -46,6 +52,10 @@ export default function PostForm(props: Props) {
         setPost((prevPost) => ({ ...prevPost, content: payload }))
     }
 
+    function handlePostExcerptChange(payload: string) {
+        setPost((prevPost) => ({ ...prevPost, excerpt: payload }))
+    }
+
     async function handlePostAction() {
         try {
 
@@ -63,10 +73,28 @@ export default function PostForm(props: Props) {
     }
 
     return (
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-8">
             <Typography.Title level={3}>{formConfig.formTitle}</Typography.Title>
-            <Input size="large" value={post.title} onChange={(e) => handlePostTitleChange(e.target.value)} placeholder="Введите заголовок" />
+
+            <Input
+                size="large"
+                placeholder="Введите заголовок"
+                value={post.title} onChange={(e) => handlePostTitleChange(e.target.value)}
+            />
+
+            <TextArea
+                rows={5}
+                showCount
+                size="large"
+                maxLength={200}
+                value={post.excerpt}
+                classNames={{ textarea: 'resize-none' }}
+                placeholder="Введите краткое описание статьи"
+                onChange={(e) => handlePostExcerptChange(e.target.value)}
+            />
+
             <Editor value={post.content} onChange={handlePostContentChange} />
+
             <div className="ml-auto max-w-xs w-full">
                 <Button onClick={handlePostAction} loading={isFetching} icon={isFetching ? <LoadingOutlined /> : <PlusOutlined />} type="primary" size="large" block>
                     {isFetching ? null : <span>{formConfig.formButtonLabel}</span>}
