@@ -7,9 +7,9 @@
 	text-decoration: none;
 	box-sizing: border-box;
 
-	--ck-border-radius: 8px;
-	--ck-focus-ring: 1px solid red;
-	--ck-inner-shadow: theme('boxShadow.input');
+	--ck-border-radius: 8px !important;
+	--ck-focus-ring: 1px solid black !important;
+	--ck-inner-shadow: theme('boxShadow.input') !important;
 }
 
 html,
@@ -28,9 +28,25 @@ body {
 	max-width: 992px;
 }
 
-.ck-editor {
-	&__editable_inline:not(.ck-comment__input *) {
-		height: 300px;
-		overflow-y: auto;
-	}
+.ant-tabs-nav {
+	margin-bottom: 0 !important;
+}
+
+.ant-tabs-nav:before {
+	display: none;
+}
+
+.ant-tabs-tab {
+	border: none !important;
+	border-bottom-left-radius: 8px !important;
+	border-bottom-right-radius: 8px !important;
+}
+
+.ant-tabs-tab-btn {
+	display: flex;
+	align-items: center;
+}
+
+.ck-placeholder {
+	font-size: 16px;
 }

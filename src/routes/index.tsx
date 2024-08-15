@@ -1,15 +1,13 @@
 import { RouteObject } from "react-router-dom"
 
 import App from "@/App"
-import Posts from "@/views/Posts"
-import Files from "@/views/Files"
-import { api } from "@/plugins/api"
-import Experience from "@/views/Experience"
-import Description from "@/views/Description"
 import Auth from "@/views/Auth"
-import PrivateRoutes from "@/components/PrivateRoutes"
-import CreatePost from "@/views/CreatePost"
+import About from "@/views/About"
+import Posts from "@/views/Posts"
+import { api } from "@/plugins/api"
 import EditPost from "@/views/EditPost"
+import CreatePost from "@/views/CreatePost"
+import PrivateRoutes from "@/components/PrivateRoutes"
 
 export const routes: RouteObject[] = [
     {
@@ -40,17 +38,9 @@ export const routes: RouteObject[] = [
                 }
             },
             {
-                path: '/experience',
-                element: <Experience />
-            },
-            {
-                path: '/description',
-                element: <Description />
-            },
-            {
-                path: '/files',
-                element: <Files />
-            },
+                path: '/about',
+                element: <About />
+            }
         ]
     },
     {

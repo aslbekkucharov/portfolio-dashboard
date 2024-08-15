@@ -1,24 +1,15 @@
-import { AlignRightOutlined, CloudOutlined, ContainerOutlined, SolutionOutlined } from "@ant-design/icons"
+import { TabItem } from "@/types"
+import { Icon } from '@iconify/react'
 
-export const links = [
+export const tabs: TabItem[] = [
     {
-        to: '/',
+        key: '/',
         label: 'Посты',
-        icon: <ContainerOutlined className="text-xl" />
+        icon: <Icon icon="iconoir:post" className="text-xl" />
     },
     {
-        to: '/experience',
-        label: 'Опыт работы',
-        icon: <SolutionOutlined className="text-xl" />
-    },
-    {
-        to: '/description',
-        label: 'Описание',
-        icon: <AlignRightOutlined className="text-xl" />
-    },
-    {
-        to: '/files',
-        label: 'Файлы',
-        icon: <CloudOutlined className="text-xl" />
+        key: '/about',
+        label: 'About',
+        icon: <Icon icon="material-symbols:account-circle-full" className="text-xl" />
     }
 ]

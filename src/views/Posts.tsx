@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { EllipsisOutlined, PlusCircleOutlined } from "@ant-design/icons"
+import { EllipsisOutlined } from "@ant-design/icons"
 import { App, Button, Dropdown, MenuProps, Table, TableColumnsType, Tag } from "antd"
 
 import { truncate } from "@/utils"
@@ -30,6 +30,7 @@ export default function Posts() {
             key: 'title',
             title: 'Заголовок',
             dataIndex: 'title',
+            render: (content: string) => <span className="font-medium">{content}</span>
         },
         {
             key: 'excerpt',
@@ -89,12 +90,5 @@ export default function Posts() {
         getPosts()
     }, [])
 
-    return (
-        <>
-            <div className="flex justify-end mb-6">
-                <Button onClick={() => navigate('/create-post')} type="default" size="large" icon={<PlusCircleOutlined />}>Добавить пост</Button>
-            </div>
-            <Table dataSource={data} columns={columns} rowKey='id' pagination={{ hideOnSinglePage: true }} />
-        </>
-    )
+    return <Table dataSource={data} columns={columns} rowKey='id' pagination={{ hideOnSinglePage: true }} />
 }

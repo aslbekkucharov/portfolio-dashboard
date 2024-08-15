@@ -1,9 +1,9 @@
 import { Post } from "@/types"
 import { useEffect, useState } from "react"
-import { useParams, useSearchParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 
-import PostForm from "@/components/PostForm"
 import { api } from "@/plugins/api"
+import PostForm from "@/components/PostForm"
 
 function EditPost() {
     const { id } = useParams()
