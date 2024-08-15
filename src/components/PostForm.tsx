@@ -73,7 +73,7 @@ export default function PostForm(props: Props) {
     }
 
     return (
-        <div className="p-5 bg-white rounded-xl flex flex-col gap-8">
+        <div className="p-5 bg-white sm:rounded-xl flex flex-col gap-8">
             <Typography.Title level={3}>{formConfig.formTitle}</Typography.Title>
 
             <Input

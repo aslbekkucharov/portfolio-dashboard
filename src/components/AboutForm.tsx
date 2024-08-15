@@ -108,7 +108,7 @@ function AboutForm(props: Props) {
     }
 
     return (
-        <div className="bg-white p-5 rounded-xl">
+        <div className="bg-white p-5 sm:rounded-xl">
             <Flex gap={20} vertical className="mb-10">
                 <Typography.Title level={3}>{formConfig.formTitle}</Typography.Title>
 
@@ -179,7 +179,7 @@ function AboutForm(props: Props) {
                     mode="multiple"
                     allowClear={true}
                     style={{ width: '100%' }}
-                    onChange={handleSkillSelect}
+                    onChange={handleCompanyTechStackSelect}
                     placeholder="Укажите стек технологий этой компании"
                 />
             </Flex>

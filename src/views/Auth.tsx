@@ -18,7 +18,7 @@ function Auth() {
     const navigate = useNavigate()
     const { saveToken, isAuthenticated } = useAuth()
     const [isSigning, setIsSigning] = useState(false)
-    const [credentials, setCredentials] = useState<AuthPayload>({ username: 'aslbekkucharov', password: 'password' })
+    const [credentials, setCredentials] = useState<AuthPayload>({ username: '', password: '' })
 
     function handleUsernameChange(payload: string) {
         setCredentials((prevCredentials) => ({ ...prevCredentials, username: payload }))

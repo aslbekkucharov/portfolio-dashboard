@@ -16,7 +16,7 @@ function Content(props: Props) {
     }
 
     return (
-        <div className="w-full container px-5 py-7">
+        <div className="w-full container sm:px-5 sm:py-7 py-4">
             <Flex justify="end">
                 <Button onClick={() => navigate('/create-post')} type="default" size="large" icon={<PlusCircleOutlined />}>Добавить пост</Button>
             </Flex>
